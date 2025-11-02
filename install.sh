@@ -5,7 +5,12 @@ read username
 echo "What's your full name?"
 read fullname
 adduser -g $fullname $username
-setup-user -a -g input,video,audio $username
+addgroup $username wheel
+addgroup $username input
+addgroup $username video
+addgroup $username audio
+addgroup $username lp
+#setup-user -a -g input,video,audio $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
 
