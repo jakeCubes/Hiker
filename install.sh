@@ -31,10 +31,10 @@ echo "Installing the Hiker XFCE4 Desktop"
 apk add elogind
 
 #service not found workaround
-echo "#!/bin/bash" >> ~/Hiker/dbus_workaround.sh
-echo "rc-update add dbus" >> ~/Hiker/dbus_workaround.sh
-echo "rc-update add elogind" >> ~/Hiker/dbus_workaround.sh
-echo "exit" >> ~/Hiker/dbus_workaround.sh
+echo "#!/bin/bash" >> /Hiker/dbus_workaround.sh
+echo "rc-update add dbus" >> /Hiker/dbus_workaround.sh
+echo "rc-update add elogind" >> /Hiker/dbus_workaround.sh
+echo "exit" >> /Hiker/dbus_workaround.sh
 chmod +x dbus_workaround.sh
 ./dbus_workaround.sh
 
@@ -89,11 +89,11 @@ echo "Setting up networking"
 apk add wpa_supplicant wpa_supplicant_openrc networkmanager network-manager-applet
 
 #service not found workaround
-echo "#!/bin/bash" >> ~/Hiker/networking_workaround.sh
-echo "rc-update add wpa_supplicant boot" >> ~/Hiker/networking_workaround.sh
-echo "rc-update add networking boot" >> ~/Hiker/networking_workaround.sh
-echo "rc-update add wpa_cli boot" >> ~/Hiker/networking_workaround.sh
-echo "exit" >> ~/Hiker/networking_workaround.sh
+echo "#!/bin/bash" >> /Hiker/networking_workaround.sh
+echo "rc-update add wpa_supplicant boot" >> /Hiker/networking_workaround.sh
+echo "rc-update add networking boot" >> /Hiker/networking_workaround.sh
+echo "rc-update add wpa_cli boot" >> /Hiker/networking_workaround.sh
+echo "exit" >> /Hiker/networking_workaround.sh
 chmod +x networking_workaround.sh
 ./dbus_workaround.sh
 
