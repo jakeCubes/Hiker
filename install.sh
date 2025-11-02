@@ -79,4 +79,10 @@ rc-update add wpa-supplicant boot
 rc-update add networking boot
 rc-update add wpa_cli boot
 echo "Done! Please reboot."
+
+#dbus service not found workaround
+echo "#!/bin/bash" >> ~/Hiker/dbus_workaround.sh
+echo "rc-update add dbus" >> ~/Hiker/dbus_workaround.sh
+echo "exit" >> ~/Hiker/dbus_workaround.sh
+./dbus_workaround.sh
 exit
