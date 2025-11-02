@@ -16,10 +16,9 @@ apk add mesa-dri-gallium mesa-va-gallium
 echo "Setting up udev"
 setup-devd udev
 echo "Installing D-Bus"
-apk add dbus sbus-x11
-echo "Setting up Dbus"
+apk add dbus dbus-x11
+echo "Setting up D-bus"
 rc-update add dbus
-rc-service dbus start
 
 #REVISIT LATER :: SEVERELY UNFINISHED MATERIAL RIGHT HERE
 echo "Installing the Hiker XFCE4 Desktop"
