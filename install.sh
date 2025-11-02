@@ -30,16 +30,24 @@ rc-update add dbus
 echo "Installing the Hiker XFCE4 Desktop"
 apk add elogind
 
+#service not found workaround
+echo "#!/bin/bash" >> ~/Hiker/dbus_workaround.sh
+echo "rc-update add dbus" >> ~/Hiker/dbus_workaround.sh
+echo "rc-update add elogind" >> ~/Hiker/dbus_workaround.sh
+echo "exit" >> ~/Hiker/dbus_workaround.sh
+chmod +x dbus_workaround
+./dbus_workaround.sh
+
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
 apk add sddm xorg-server-xephyr
 rc-update add sddm
 
-cp ~/Hiker/environment_labwc_hiker ~/home/$username/.config/labwc/environment
-cp ~/Hiker/rc.xml_labwc_hiker ~/home/$username/.config/labwc/rc.xml
-cp ~/Hiker/autostart_labwc_hiker ~/home/$username/.config/labwc/autostart
-cp ~/Hiker/menu.xml_labwc_hiker ~/home/$username/.config/labwc/menu.xml
-cp ~/Hiker/thx_mango133_on_wallpapercave.jpg ~/home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
-echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> ~/home/$username/.config/environment
+cp /Hiker/environment_labwc_hiker /home/$username/.config/labwc/environment
+cp /Hiker/rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
+cp /Hiker/autostart_labwc_hiker /home/$username/.config/labwc/autostart
+cp /Hiker/menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
+cp /Hiker/thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
+echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/environment
 #FIX XDG_RUNTIME_DIR IS UNSET
 
 
@@ -84,12 +92,7 @@ rc-update add networking boot
 rc-update add wpa_cli boot
 
 
-#service not found workaround
-echo "#!/bin/bash" >> ~/Hiker/dbus_workaround.sh
-echo "rc-update add dbus" >> ~/Hiker/dbus_workaround.sh
-echo "rc-update add elogind" >> ~/Hiker/dbus_workaround.sh
-echo "exit" >> ~/Hiker/dbus_workaround.sh
-./dbus_workaround.sh
+
 
 echo "Done! Please reboot."
 exit
