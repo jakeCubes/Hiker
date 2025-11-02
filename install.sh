@@ -17,7 +17,7 @@ echo "Setting up udev"
 setup-devd udev
 echo "Installing D-Bus"
 apk add dbus dbus-x11
-echo "Setting up D-bus"
+echo "Setting up D-Bus"
 rc-update add dbus
 
 #REVISIT LATER :: SEVERELY UNFINISHED MATERIAL RIGHT HERE
