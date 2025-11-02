@@ -12,7 +12,7 @@ INSTRUCTIONS
 
 Download and flash the standard 3.22.2 version of Alpine Linux to a usb drive, boot into the live environment and login as root (there is no password, just press enter).
 Afterwards, use the normal setup-alpine install script from the live enviroment first to install base Alpine. For a more detailed explanation, refer to the official Alpine wiki: https://wiki.alpinelinux.org/wiki/Installation 
-It is MANDATORY that you install Alpine in "sys" mode, make a user account and enable the community repository. If for whatever reason, you forgot to enable the community repo, use the setup-apkrepos script to easily do so.
+It is MANDATORY that you install Alpine in "sys" mode, DO NOT make a user account (the Hiker script'll handle that) and enable the community repository. If for whatever reason, you forgot to enable the community repo, use the setup-apkrepos script to easily do so.
 
 Once you are done with the base installation of Alpine, reboot into the new install, and install the alpine-sdk package by using the command [apk add alpine-sdk].
 
