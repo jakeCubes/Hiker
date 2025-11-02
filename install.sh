@@ -35,7 +35,7 @@ echo "#!/bin/bash" >> ~/Hiker/dbus_workaround.sh
 echo "rc-update add dbus" >> ~/Hiker/dbus_workaround.sh
 echo "rc-update add elogind" >> ~/Hiker/dbus_workaround.sh
 echo "exit" >> ~/Hiker/dbus_workaround.sh
-chmod +x dbus_workaround
+chmod +x dbus_workaround.sh
 ./dbus_workaround.sh
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
@@ -74,23 +74,28 @@ adduser $username lp
 rc-update add bluetooth default
 
 echo "Configuring power management"
-apk add acpid powerctl
+apk add acpid pm-utils
 rc-update add acpid
 echo "" >> /etc/doas.conf
 echo "permit nopass $username as root cmd /bin/loginctl" >> /etc/doas.conf
 
 echo "Configuring software management"
-apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-*
+apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xfce
 #It is possible xdg_desktop_portal will need further configuration
 #to make Flatpak work right
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "Setting up networking"
 apk add wpa_supplicant wpa_supplicant_openrc networkmanager network-manager-applet
-rc-update add wpa-supplicant boot
-rc-update add networking boot
-rc-update add wpa_cli boot
 
+#service not found workaround
+echo "#!/bin/bash" >> ~/Hiker/networking_workaround.sh
+echo "rc-update add wpa_supplicant boot" >> ~/Hiker/networking_workaround.sh
+echo "rc-update add networking boot" >> ~/Hiker/networking_workaround.sh
+echo "rc-update add wpa_cli boot" >> ~/Hiker/networking_workaround.sh
+echo "exit" >> ~/Hiker/networking_workaround.sh
+chmod +x networking_workaround.sh
+./dbus_workaround.sh
 
 
 
