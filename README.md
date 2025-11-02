@@ -3,7 +3,7 @@ An easy installation script to make Alpine Linux (3.22.2 as of now) into a minim
 
 DISCLAIMER
 ----------
-This is very much not finished yet, and the instructions below may be too complicated or confusing for the average user to follow. Although a bit more technical user might not find that an issue, the end goal is for almost anybody to be able to follow this guide as an easy way to revive their old computers, and to someday become a full derivative of Alpine as a whole.
+This is very much not finished yet, and the instructions below may be too complicated or confusing for the average user to follow. Although a bit more technical user might not find that an issue, the end goal is for almost anybody to be able to follow this guide as an easy way to revive their old computers, and to someday become a full derivative of Alpine as a whole. I am not responsible for any damage inflicted to one's device through the usage of this script.
 
 INSTRUCTIONS
 ------------
@@ -25,6 +25,6 @@ To do so, just type in the following commands:
 - Run the script [./install]
 - Watch an Action Retro video while it installs (I really like that channel, if you haven't guessed just yet).
 - Realise the installation actually only took 4 minutes.
-
+Once this is done, the computer will reboot into a graphical environment.
 ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
 -------------------
