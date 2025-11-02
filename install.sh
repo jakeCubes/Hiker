@@ -4,7 +4,7 @@ echo "What will you call your user account? [no spaces, no capital letters]"
 read username
 echo "What's your full name?"
 read fullname
-setup-user -a -f "$fullname" -g input,video,audio -k none $username
+setup-user -a -f "$fullname" -g input,video,audio $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
 
@@ -65,7 +65,7 @@ echo "Configuring power management"
 apk add acpid powerctl
 rc-update add acpid
 echo "" >> /etc/doas.conf
-echo "permit nopass $USER as root cmd /bin/loginctl" >> /etc/doas.conf
+echo "permit nopass $username as root cmd /bin/loginctl" >> /etc/doas.conf
 
 echo "Configuring software management"
 apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-*
