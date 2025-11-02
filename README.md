@@ -22,6 +22,7 @@ To do so, just type in the following commands:
 
 - Clone this repo: [git clone https://github.com/jakeCubes/Hiker.git]
 - Enter the newly downloaded folder: [cd Hiker]
+- Make the script executable [chmod +x install.sh && chmod +x install_bash.sh]
 - Run the script [./install_bash]
 - Watch an Action Retro video while it installs (I really like that channel, if you haven't guessed just yet).
 - Realise the installation actually only took 4 minutes.
