@@ -26,7 +26,7 @@ apk add elogind
 rc-update add elogind
 rc-serice elogind start
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
-apk add sddm
+apk add sddm xorg-server-xephyr
 rc-update add sddm
 
 cp ~/Hiker/environment_labwc_hiker ~/home/$username/.config/labwc/environment
@@ -35,10 +35,7 @@ cp ~/Hiker/autostart_labwc_hiker ~/home/$username/.config/labwc/autostart
 cp ~/Hiker/menu.xml_labwc_hiker ~/home/$username/.config/labwc/menu.xml
 cp ~/Hiker/thx_mango133_on_wallpapercave.jpg ~/home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
 echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> ~/home/$username/.config/environment
-apk add python3
-python -m ensurepip --upgrade
-apk add pipx
-pipx install waypaper
+
 
 
 echo "Installing and configuring file management utilities"
