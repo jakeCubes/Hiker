@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "What will you call your user account? [no spaces, no capital letters]
+echo "What will you call your user account? [no spaces, no capital letters]"
 read username
 echo "What's your full name?"
 read fullname
