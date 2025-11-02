@@ -4,7 +4,8 @@ echo "What will you call your user account? [no spaces, no capital letters]"
 read username
 echo "What's your full name?"
 read fullname
-setup-user -a -f "$fullname" -g input,video,audio $username
+#setup-user -a -f "$fullname" -g input,video,audio $username
+setup-user -a $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
 
