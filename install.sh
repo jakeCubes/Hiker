@@ -79,3 +79,5 @@ apk add wpa_supplicant wpa_supplicant_openrc networkmanager network-manager-appl
 rc-update add wpa-supplicant boot
 rc-update add networking boot
 rc-update add wpa_cli boot
+echo "Done! Please reboot."
+exit
