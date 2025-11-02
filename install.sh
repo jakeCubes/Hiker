@@ -95,7 +95,7 @@ echo "rc-update add networking boot" >> /Hiker/networking_workaround.sh
 echo "rc-update add wpa_cli boot" >> /Hiker/networking_workaround.sh
 echo "exit" >> /Hiker/networking_workaround.sh
 chmod +x networking_workaround.sh
-./dbus_workaround.sh
+./networking_workaround.sh
 
 
 
