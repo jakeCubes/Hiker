@@ -76,7 +76,7 @@ echo "" >> /etc/doas.conf
 echo "permit nopass $username as root cmd /bin/loginctl" >> /etc/doas.conf
 
 echo "Configuring software management"
-apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xfce
+apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-openrc xdg-desktop-portal-xapp
 #It is possible xdg_desktop_portal will need further configuration
 #to make Flatpak work right
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
