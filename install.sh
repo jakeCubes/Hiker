@@ -100,13 +100,13 @@ sleep 39 #Waits for the shell to realise I told it to remember flstpak's a thing
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "Setting up networking"
-apk add wpa_supplicant networkmanager network-manager-applet networkmanager-wifi
+apk add wpa_supplicant networkmanager network-manager-applet networkmanager-wifi networkmanager-bluetooth
 
 while [ ! -f "/etc/init.d/networkmanager" ]; do
   sleep 0.5
 done
 rc-update add networkmanager default
-
+addgroup $username plugdev
 
 echo "Done! Please reboot."
 exit
