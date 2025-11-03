@@ -5,6 +5,8 @@ read username
 #echo "What's your full name?"
 #read fullname
 #adduser -g $fullname $username
+apk add doas
+sleep 10
 adduser $username
 addgroup $username wheel
 addgroup $username input
@@ -21,7 +23,6 @@ addgroup $username kvm
 addgroup $username games
 addgroup $username cdrw
 addgroup $username usb
-apk add doas
 #setup-user -a -g input,video,audio $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
