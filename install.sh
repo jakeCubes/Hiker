@@ -51,7 +51,8 @@ rc-service elogind start
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
 apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-apk add greetd greetd-gtkgreet cage
+#apk add greetd greetd-gtkgreet cage
+apk add ly
 mkdir -p /etc/greetd/
 echo "labwc" >> /etc/greetd/environments
 
