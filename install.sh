@@ -38,19 +38,21 @@ done
 rc-update add elogind
 rc-service elogind start
 
-apk add labwc labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
+apk add labwc sfwbar labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
 apk add sddm xorg-server-xephyr
 while [ ! -f "/etc/init.d/sddm" ]; do
   sleep 0.5
 done
 rc-update add sddm
-
+mkdir -p /home/$username/.config/labwc
+mkdir -p /home/$username/.config/sfwbar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
 cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
 cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
 cp menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
+cp sfwbar.config /home/$username/.config/sfwbar/sfwbar.config
 cp thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
-echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/environment
+echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/labwc/environment
 
 echo "Installing and configuring file management utilities"
 apk add polkit-elogind
