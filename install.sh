@@ -38,7 +38,7 @@ done
 rc-update add elogind
 rc-service elogind start
 
-apk add labwc sfwbar labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad falkon
+apk add labwc sfwbar labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
 apk add sddm xorg-server-xephyr
 while [ ! -f "/etc/init.d/sddm" ]; do
   sleep 0.5
