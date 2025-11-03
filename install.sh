@@ -41,7 +41,7 @@ done
 rc-update add dbus
 
 #REVISIT LATER :: SEVERELY UNFINISHED MATERIAL RIGHT HERE
-echo "Installing the Hiker XFCE4 Desktop"
+echo "Installing the Hiker Desktop"
 apk add elogind
 while [ ! -f "/etc/init.d/elogind" ]; do
   sleep 0.5
@@ -51,11 +51,14 @@ rc-service elogind start
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
 apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-apk add sddm xorg-server-xephyr
-while [ ! -f "/etc/init.d/sddm" ]; do
+apk add greetd greetd-gtkgreet cage
+mkdir -p /etc/greetd/
+echo "labwc" >> /etc/greetd/environments
+
+while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
 done
-rc-update add sddm
+rc-update add greetd
 mkdir -p /home/$username/.config/labwc
 mkdir -p /home/$username/.config/sfwbar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
