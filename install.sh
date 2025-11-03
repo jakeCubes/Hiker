@@ -42,16 +42,12 @@ apk add labwc labwc-doc xwayland foot swaybg font-dejavu xfce4-panel mousepad fa
 apk add sddm xorg-server-xephyr
 rc-update add sddm
 
-cp /Hiker/environment_labwc_hiker /home/$username/.config/labwc/environment
-cp /Hiker/rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
-cp /Hiker/autostart_labwc_hiker /home/$username/.config/labwc/autostart
-cp /Hiker/menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
-cp /Hiker/thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
+cp environment_labwc_hiker /home/$username/.config/labwc/environment
+cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
+cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
+cp menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
+cp thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
 echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/environment
-#FIX XDG_RUNTIME_DIR IS UNSET
-
-
-
 
 echo "Installing and configuring file management utilities"
 apk add polkit-elogind
