@@ -32,6 +32,9 @@ apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat
 apk add sed
 apk add mkrundir --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 sed -i -e '1iexport XDG_RUNTIME_DIR=$(mkrundir)\' /home/$username/.profile
+sed -i -e '2iexport WLR_RENDERER_ALLOW_SOFTWARE=1\' /home/$username/.profile
+
+
 
 echo "Installing basic Mesa graphics"
 apk add mesa-dri-gallium mesa-va-gallium
