@@ -10,6 +10,17 @@ addgroup $username wheel
 addgroup $username input
 addgroup $username video
 addgroup $username audio
+addgroup $username users
+addgroup $username adm
+addgroup $username floppy
+addgroup $username cdrom
+addgroup $username dialout
+addgroup $username tape
+addgroup $username netdev
+addgroup $username kvm
+addgroup $username games
+addgroup $username cdrw
+addgroup $username usb
 #setup-user -a -g input,video,audio $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
