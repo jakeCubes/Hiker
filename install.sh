@@ -2,9 +2,10 @@
 
 echo "What will you call your user account? [no spaces, no capital letters]"
 read username
-echo "What's your full name?"
-read fullname
-adduser -g $fullname $username
+#echo "What's your full name?"
+#read fullname
+#adduser -g $fullname $username
+adduser $username
 addgroup $username wheel
 addgroup $username input
 addgroup $username video
