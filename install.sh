@@ -21,6 +21,7 @@ addgroup $username kvm
 addgroup $username games
 addgroup $username cdrw
 addgroup $username usb
+apk add doas
 #setup-user -a -g input,video,audio $username
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
@@ -28,6 +29,10 @@ read keyboardlayout
 apk update
 echo "Installing basic system required packages"
 apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat
+apk add sed
+apk add mkrundir --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+sed -i -e '1iexport XDG_RUNTIME_DIR=$(mkrundir)\' filename
+
 echo "Installing basic Mesa graphics"
 apk add mesa-dri-gallium mesa-va-gallium
 echo "Setting up udev"
