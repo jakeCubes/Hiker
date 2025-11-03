@@ -56,15 +56,15 @@ rc-service elogind start
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
 apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-#apk add greetd greetd-gtkgreet cage
-apk add ly
-#mkdir -p /etc/greetd/
-#echo "labwc" >> /etc/greetd/environments
+apk add greetd greetd-gtkgreet cage
 
-while [ ! -f "/etc/init.d/ly" ]; do
+mkdir -p /etc/greetd/
+echo "labwc" >> /etc/greetd/environments
+
+while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
 done
-#rc-update add ly // UNCOMMENT OR CHANGE ONCE EVERYTHING ELSE IS DONE !!!
+rc-update add greetd
 mkdir -p /home/$username/.config/labwc
 mkdir -p /home/$username/.config/sfwbar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
