@@ -70,10 +70,11 @@ rc-update add fuse
 rc-service fuse start
 
 echo "Configuring audio"
-apk add pipewire wireplumber pavucontrol pipewire-pulse pipewire-jack pipewire-alsa
+#apk add pipewire wireplumber pavucontrol pipewire-pulse pipewire-jack pipewire-alsa
+apk add pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils 
 
 echo "Configuring bluetooth"
-apk add bluez blueman bluez-openrc pipewire-spa-bluez
+apk add bluez blueman bluez-openrc pulseaudio-bluez
 modprobe btusb
 addgroup $username lp
 while [ ! -f "/etc/init.d/bluetooth" ]; do
