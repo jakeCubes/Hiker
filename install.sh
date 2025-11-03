@@ -31,7 +31,7 @@ echo "Installing basic system required packages"
 apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat
 apk add sed
 apk add mkrundir --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
-sed -i -e '1iexport XDG_RUNTIME_DIR=$(mkrundir)\' filename
+sed -i -e '1iexport XDG_RUNTIME_DIR=$(mkrundir)\' /home/$username/.profile
 
 echo "Installing basic Mesa graphics"
 apk add mesa-dri-gallium mesa-va-gallium
@@ -64,7 +64,7 @@ apk add ly
 while [ ! -f "/etc/init.d/ly" ]; do
   sleep 0.5
 done
-rc-update add ly
+#rc-update add ly // UNCOMMENT OR CHANGE ONCE EVERYTHING ELSE IS DONE !!!
 mkdir -p /home/$username/.config/labwc
 mkdir -p /home/$username/.config/sfwbar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
