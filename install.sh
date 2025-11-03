@@ -92,27 +92,20 @@ echo "" >> /etc/doas.conf
 echo "permit nopass $username as root cmd /bin/loginctl" >> /etc/doas.conf
 
 echo "Configuring software management"
-apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-openrc xdg-desktop-portal-xapp
+apk add flatpak discover discover-backend-apk discover-backend-flatpak xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 #It is possible xdg_desktop_portal will need further configuration
 #to make Flatpak work right
 hash -r #Refreshes the shell's command cache, in english, tells it to remember flatpak IS indeed installed.
+sleep 39 #Waits for the shell to realise I told it to remember flstpak's a thing now.
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "Setting up networking"
-apk add wpa_supplicant wpa_supplicant_openrc networkmanager network-manager-applet
+apk add wpa_supplicant networkmanager network-manager-applet networkmanager-wifi
 
-while [ ! -f "/etc/init.d/wpa_supplicant" ]; do
+while [ ! -f "/etc/init.d/networkmanager" ]; do
   sleep 0.5
 done
-rc-update add wpa_supplicant boot
-while [ ! -f "/etc/init.d/networking" ]; do
-  sleep 0.5
-done
-rc-update add networking boot
-while [ ! -f "/etc/init.d/wpa_cli" ]; do
-  sleep 0.5
-done
-rc-update add wpa_cli boot
+rc-update add networkmanager default
 
 
 echo "Done! Please reboot."
