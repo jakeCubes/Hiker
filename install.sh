@@ -49,7 +49,8 @@ done
 rc-update add elogind
 rc-service elogind start
 
-apk add labwc sfwbar labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
+apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
+apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
 apk add sddm xorg-server-xephyr
 while [ ! -f "/etc/init.d/sddm" ]; do
   sleep 0.5
