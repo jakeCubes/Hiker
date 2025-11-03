@@ -71,14 +71,6 @@ rc-service fuse start
 
 echo "Configuring audio"
 apk add pipewire wireplumber pavucontrol pipewire-pulse pipewire-jack pipewire-alsa
-while [ ! -f "/etc/init.d/pipewire" ]; do
-  sleep 0.5
-done
-rc-update -U add pipewire gui
-while [ ! -f "/etc/init.d/wireplumber" ]; do
-  sleep 0.5
-done
-rc-update -U add wireplumber gui
 
 echo "Configuring bluetooth"
 apk add bluez blueman bluez-openrc pipewire-spa-bluez
