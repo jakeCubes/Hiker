@@ -60,6 +60,7 @@ rc-service elogind start
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
 #apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+apk add waybar xfce4-appfinder font-awesome
 apk add greetd greetd-gtkgreet cage
 
 mkdir -p /etc/greetd/
@@ -71,7 +72,7 @@ done
 rc-update add greetd
 mkdir -p /home/$username/.config/labwc
 #mkdir -p /home/$username/.config/sfwbar
-mkdir -p /home/$username/.config/yambar
+mkdir -p /home/$username/.config/waybar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
 cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
 cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
