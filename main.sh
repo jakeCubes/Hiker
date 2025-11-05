@@ -69,11 +69,13 @@ echo "Installing graphic drivers..."
 apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11bus
 
 if [ $graphics = "intel" ]; then
-  echo "Number is greater than 10"
-elif [ $graphics = "intel" ]; then
-  echo "Number is exactly 10"
-elif [ $graphics = "intel" ]; then
-  echo "Number is less than 10"
+  apk add intel-media-driver libva-intel-driver linux-firmware-i915
+elif [ $graphics = "amd" ]; then
+  apk add linux-firmware-amdgpu linux-firmware-radeon mesa-vulkan-ati
+elif [ $graphics = "nvidia" ]; then
+  echo "Nvidia GPU was selected, the Noveau open-source driver will be used."
+else
+  echo "No valid GPU brand was selected or generic/vm was selected."
 fi
 
 while [ ! -f "/etc/init.d/dbus" ]; do #Avoiding rc-update nonsense || It'd sometimes say D-Bus is not installed and just not enable the service.
@@ -81,6 +83,9 @@ while [ ! -f "/etc/init.d/dbus" ]; do #Avoiding rc-update nonsense || It'd somet
 done
 rc-update add dbus
 #Installing Mesa drivers and D-Bus-------------------------------------------------
+
+
+
 
 
 
