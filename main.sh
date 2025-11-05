@@ -1,6 +1,7 @@
 #!/bin/bash
 #The main script to install Hiker.
-
+#You might have already noticed the little "trick" I used to make this script and not care about Busybox Ash's lack of easily available documentation.
+#Don't judge me, please.
 
 #Basic Settings------------------------------------------------------------------
 clear
