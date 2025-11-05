@@ -78,6 +78,8 @@ cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
 cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
 cp menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
 #cp sfwbar.config /home/$username/.config/sfwbar/sfwbar.config
+cp style.css /home/$username/.config/waybar/style.css
+cp config.jsonc /home/$username/.config/waybar/config.jsonc
 cp thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
 echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/labwc/environment
 
