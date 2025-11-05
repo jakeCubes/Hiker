@@ -66,6 +66,7 @@ clear
 
 #Installing Mesa drivers and D-Bus------------------------------------------------
 echo "Installing graphic drivers..."
+sleep 0.2
 apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11bus
 
 if [ $graphics = "intel" ]; then
