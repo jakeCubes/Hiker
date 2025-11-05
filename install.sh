@@ -5,7 +5,7 @@ read username
 #echo "What's your full name?"
 #read fullname
 #adduser -g $fullname $username
-apk add doas
+apk add sudo
 sleep 10
 adduser $username
 addgroup $username wheel
@@ -24,6 +24,7 @@ addgroup $username games
 addgroup $username cdrw
 addgroup $username usb
 #setup-user -a -g input,video,audio $username
+echo /etc/doas.conf >> "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel"
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
 
@@ -58,7 +59,8 @@ rc-update add elogind
 rc-service elogind start
 
 apk add labwc labwc-doc xwayland foot swaybg font-dejavu mousepad falkon
-apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+#apk add sfwbar --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+apk add yambar
 apk add greetd greetd-gtkgreet cage
 
 mkdir -p /etc/greetd/
@@ -69,12 +71,14 @@ while [ ! -f "/etc/init.d/greetd" ]; do
 done
 rc-update add greetd
 mkdir -p /home/$username/.config/labwc
-mkdir -p /home/$username/.config/sfwbar
+#mkdir -p /home/$username/.config/sfwbar
+mkdir -p /home/$username/.config/yambar
 cp environment_labwc_hiker /home/$username/.config/labwc/environment
 cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
 cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
 cp menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
-cp sfwbar.config /home/$username/.config/sfwbar/sfwbar.config
+#cp sfwbar.config /home/$username/.config/sfwbar/sfwbar.config
+cp laptop
 cp thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
 echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/labwc/environment
 
