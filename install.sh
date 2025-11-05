@@ -1,4 +1,4 @@
 #!/bin/sh
 apk add bash
-chmod +x bashbasedinstall.sh
-source ./bashbasedinstall.sh
+chmod +x main.sh
+source ./main.sh
