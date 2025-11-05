@@ -5,7 +5,7 @@ read username
 #echo "What's your full name?"
 #read fullname
 #adduser -g $fullname $username
-apk add sudo
+apk add doas
 sleep 10
 adduser $username
 addgroup $username wheel
@@ -78,7 +78,7 @@ cp rc.xml_labwc_hiker /home/$username/.config/labwc/rc.xml
 cp autostart_labwc_hiker /home/$username/.config/labwc/autostart
 cp menu.xml_labwc_hiker /home/$username/.config/labwc/menu.xml
 #cp sfwbar.config /home/$username/.config/sfwbar/sfwbar.config
-cp laptop
+cp laptop.conf /home/$username/.config/yambar/config.yml
 cp thx_mango133_on_wallpapercave.jpg /home/$username/.config/labwc/thx_mango133_on_wallpapercave.jpg
 echo "XKB_DEFAULT_LAYOUT=$keyboardlayout" >> /home/$username/.config/labwc/environment
 
