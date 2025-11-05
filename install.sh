@@ -24,7 +24,7 @@ addgroup $username games
 addgroup $username cdrw
 addgroup $username usb
 #setup-user -a -g input,video,audio $username
-echo /etc/doas.conf >> "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel"
+echo "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel" >> /etc/doas.conf
 echo "What keyboard layout will you use? ej. us, es, ru..."
 read keyboardlayout
 
