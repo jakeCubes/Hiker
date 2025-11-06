@@ -60,7 +60,8 @@ clear
 echo "Installing system essentials..."
 sleep 0.5
 apk update
-apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat sof-firmware alsa-firmware
+sleep 0.5
+apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat sof-firmware
 setup-devd udev
 clear
 #Updating repositories and installing essential packages--------------------------
@@ -69,7 +70,7 @@ clear
 #Installing Mesa drivers and D-Bus------------------------------------------------
 echo "Installing graphic drivers..."
 sleep 0.5
-apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11bus mesa-gles mesa-gl
+apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11 mesa-gles mesa-gl
 
 if [ $graphics = "intel" ]; then
   apk add intel-media-driver libva-intel-driver linux-firmware-i915
