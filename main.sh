@@ -34,7 +34,7 @@ clear
 
 #Setting up the user-------------------------------------------------------------
 echo "Setting up your user account..."
-sleep 0.2
+sleep 0.5
 apk add doas #Adds doas, Alpine's replacement for sudo.
 addgroup $user wheel 
 addgroup $user input 
@@ -55,11 +55,12 @@ echo "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/s
 clear
 #Setting up the user--------------------------------------------------------------
 
+
 #Updating repositories and installing essential packages--------------------------
 echo "Installing system essentials..."
-sleep 0.2
+sleep 0.5
 apk update
-apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat
+apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat sof-firmware alsa-firmware
 setup-devd udev
 clear
 #Updating repositories and installing essential packages--------------------------
@@ -67,8 +68,8 @@ clear
 
 #Installing Mesa drivers and D-Bus------------------------------------------------
 echo "Installing graphic drivers..."
-sleep 0.2
-apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11bus
+sleep 0.5
+apk add mesa-dri-gallium mesa-va-gallium dbus dbus-x11bus mesa-gles mesa-gl
 
 if [ $graphics = "intel" ]; then
   apk add intel-media-driver libva-intel-driver linux-firmware-i915
@@ -88,9 +89,10 @@ clear
 #Installing Mesa drivers and D-Bus-------------------------------------------------
 
 
-#Installing the Hiker Desktop------------------------------------------------------
-echo "Installing the Hiker Desktop..."
-sleep 0.2
+#Installing the Hiker Desktop------------------------------------------------------ #As a reminder, there is currently no way to set the wallpaper with a gui, so that should probably be added later on.
+echo "Installing the Hiker Desktop..."#                                             A greeter will be nice to have too. Ly'll do the trick.
+sleep 0.5#                                                                          And you also need to make the Super_L key open the jgmenu menu instead of the default one. That should be all. (jgmenu menu lol)
+
 apk add jgmenu #It's placed before everything else to give time for all instalation files to move to wherever they need to
 #               and avoid jgmenu_run init --theme=greeneye failing.
 apk add xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
@@ -99,13 +101,108 @@ echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 
+apk add tar
+sleep 0.4
+tar --extract -f /Hiker/configs/icewm.tar
 cp -r configs/icewm /home/$user/.icewm/
 
-jgmenu_run init --theme=greeneye
+jgmenu_run init --theme=greeneye #Sets a whiskermenu-like theme for jgmenu. 
+clear
 #Installing the Hiker Desktop-------------------------------------------------------
 
 
+#Configuring connectivity-----------------------------------------------------------
+echo "Setting up Wifi and Bluetooth"
+sleep 0.5
+apk add wpa_supplicant networkmanager network-manager-applet networkmanager-wifi networkmanager-bluetooth
+
+while [ ! -f "/etc/init.d/networkmanager" ]; do
+  sleep 0.5
+done
+rc-update add networkmanager default
+addgroup $user plugdev
+
+apk add bluez blueman bluez-openrc
+modprobe btusb
+addgroup $user lp
+while [ ! -f "/etc/init.d/bluetooth" ]; do
+  sleep 0.5
+done
+rc-update add bluetooth default
+clear
+#Configuring connectivity-----------------------------------------------------------
 
 
+#Setting up audio (ALSA)------------------------------------------------------------
+echo "Setting up audio..."
+sleep 0.5
+apk add alsa-utils alsaconf
+addgroup root audio
+apk add volumeicon --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+while [ ! -f "/etc/init.d/alsa" ]; do
+  sleep 0.5
+done
+rc-update add alsa
+clear
+#Setting up audio (ALSA)------------------------------------------------------------
 
 
+#Setting up automounting and pcmanfm------------------------------------------------
+echo "Setting up file management..."
+sleep 0.5
+apk add polkit-elogind
+while [ ! -f "/etc/init.d/polkit" ]; do
+  sleep 0.5
+done
+rc-update add polkit
+rc-service polkit start
+apk add pcmanfm gvfs-fuse udisks2 ntfs-3g gvfs-mtp gvfs-smb gvfs-afc gvfs-fuse gvfs-gphoto2 gvfs-archive
+apk add fuse-openrc
+while [ ! -f "/etc/init.d/fuse" ]; do
+  sleep 0.5
+done
+rc-update add fuse
+rc-service fuse start
+clear
+#Setting up automounting and pcmanfm------------------------------------------------
+
+
+#Setting up power management--------------------------------------------------------
+echo "Setting up power management..."
+sleep 0.5
+apk add powerctl
+
+#Setting up busybox acpid takes a while, so it's been left for later just for now.
+
+clear
+#Setting up power management--------------------------------------------------------
+
+
+#Adding a software store------------------------------------------------------------
+echo "Installing the software store..."
+sleep 0.5
+apk add flatpak discover discover-backend-apk discover-backend-flatpak
+sleep 2 #Waits for the shell to realise I told it to remember flstpak's a thing now.
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+clear
+#Adding a software store------------------------------------------------------------
+
+
+#Rebooting--------------------------------------------------------------------------
+echo "Installation complete!"
+sleep 0.2
+echo "Rebooting in..."
+sleep 0.1
+echo "3"
+sleep 1
+echo "2"
+sleep 1
+echo "1"
+sleep 1
+reboot
+#Rebooting----------------------------------------------------------------------------
+
+#TODO:
+#Config acpid propperly.
+#Add a greeter.
+#Fix Super_L showing the IceWM start menu.
