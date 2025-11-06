@@ -95,7 +95,7 @@ sleep 0.5#                                                                      
 
 apk add jgmenu #It's placed before everything else to give time for all instalation files to move to wherever they need to
 #               and avoid jgmenu_run init --theme=greeneye failing.
-apk add xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
+apk add xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
