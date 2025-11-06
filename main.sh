@@ -91,13 +91,18 @@ clear
 #Installing the Hiker Desktop------------------------------------------------------
 echo "Installing the Hiker Desktop..."
 sleep 0.2
-apk add xorg-server xinit xf86-input-libinput icewm jgmenu xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
+apk add jgmenu #It's placed before everything else to give time for all instalation files to move to wherever they need to
+#               and avoid jgmenu_run init --theme=greeneye failing.
+apk add xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 
 cp -r configs/icewm /home/$user/.icewm/
+
+jgmenu_run init --theme=greeneye
+#Installing the Hiker Desktop-------------------------------------------------------
 
 
 
