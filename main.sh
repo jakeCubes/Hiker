@@ -207,3 +207,8 @@ reboot
 #Config acpid propperly.
 #Add a greeter.
 #Fix Super_L showing the IceWM start menu.
+#Fix applets not displaying by default
+#Fix default theme not being applied by default
+#Fix jgmenu not being installed
+#Fix icewm preferences not being configured propperly
+#Give KDE Discover root perms by default with doas because you don't have enough work already
