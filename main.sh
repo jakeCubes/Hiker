@@ -91,12 +91,13 @@ clear
 #Installing the Hiker Desktop------------------------------------------------------
 echo "Installing the Hiker Desktop..."
 sleep 0.2
-apk add xorg-server xinit xf86-input-libinput
+apk add xorg-server xinit xf86-input-libinput icewm jgmenu xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 
+cp -r configs/icewm /home/$user/.icewm/
 
 
 
