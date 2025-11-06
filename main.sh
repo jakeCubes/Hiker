@@ -84,7 +84,18 @@ while [ ! -f "/etc/init.d/dbus" ]; do #Avoiding rc-update nonsense || It'd somet
   sleep 0.5
 done
 rc-update add dbus
+clear
 #Installing Mesa drivers and D-Bus-------------------------------------------------
+
+
+#Installing the Hiker Desktop------------------------------------------------------
+echo "Installing the Hiker Desktop..."
+sleep 0.2
+apk add xorg-server xinit xf86-input-libinput
+
+echo "setxkbmap $layout" >> configs/.xinitrc
+echo "exec icewm-session" >> configs/.xinitrc
+cp configs/.xinitrc /home/$user/.xinitrc
 
 
 
