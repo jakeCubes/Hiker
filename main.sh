@@ -15,7 +15,7 @@ clear
 echo "What about your keyboard layout? [ej. "es", "ru", "us"]"
 read layout
 clear
-echo "What's your graphics card? [intel (both integrated and not), amd, nvidia, generic/vm]
+echo "What's your graphics card? [intel (both integrated and not), amd, nvidia, generic/vm]"
 read graphics
 clear
 echo "Alright, 3"
