@@ -10,7 +10,7 @@ echo "What will you call your user? [Without spaces or capital letters please!]"
 read user
 clear
 echo "Nice, $user, what will your password be?"
-read dummy #adduser $user
+adduser $user
 clear
 echo "What about your keyboard layout? [ej. "es", "ru", "us"]"
 read layout
