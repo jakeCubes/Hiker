@@ -90,23 +90,19 @@ clear
 #Installing Mesa drivers and D-Bus-------------------------------------------------
 
 
-#Installing the Hiker Desktop------------------------------------------------------ #As a reminder, there is currently no way to set the wallpaper with a gui, so that should probably be added later on.
-echo "Installing the Hiker Desktop..."#                                             A greeter will be nice to have too. Ly'll do the trick.
-sleep 0.5#                                                                          And you also need to make the Super_L key open the jgmenu menu instead of the default one. That should be all. (jgmenu menu lol)
-
-apk add jgmenu #It's placed before everything else to give time for all instalation files to move to wherever they need to
-#               and avoid jgmenu_run init --theme=greeneye failing.
-apk add xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
+#Installing the Hiker Desktop------------------------------------------------------
+sleep 0.5
+apk add jgmenu xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 
-apk add tar
-sleep 0.4
-tar --extract -f /Hiker/configs/icewm.tar
 cp -r configs/icewm /home/$user/.icewm/
 
+while [ ! -f "/usr/bin/jgmenu_run" ]; do
+  sleep 0.5
+done
 jgmenu_run init --theme=greeneye #Sets a whiskermenu-like theme for jgmenu. 
 clear
 #Installing the Hiker Desktop-------------------------------------------------------
