@@ -94,11 +94,11 @@ clear
 sleep 0.5
 apk add xterm xorg-server xinit xf86-input-libinput icewm nitrogen xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp jgmenu
 
-apk add ly xauth brightnessctl
-while [ ! -f "/etc/init.d/ly" ]; do
+apk add greetd greetd-openrc greetd-tuigreet
+while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
 done
-rc-update add ly
+rc-update add greetd
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
