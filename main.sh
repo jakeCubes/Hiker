@@ -94,10 +94,15 @@ clear
 sleep 0.5
 apk add jgmenu xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
+apk add ly xauth brightnessctl
+while [ ! -f "/etc/init.d/ly" ]; do
+  sleep 0.5
+done
+rc-update add ly
+
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
-
 cp -r configs/icewm /home/$user/.icewm/
 
 while [ ! -f "/usr/bin/jgmenu_run" ]; do
