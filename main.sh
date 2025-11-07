@@ -92,7 +92,7 @@ clear
 
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
-apk add jgmenu xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
+apk add jgmenu xterm xorg-server xinit xf86-input-libinput icewm nitrogen xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 apk add ly xauth brightnessctl
 while [ ! -f "/etc/init.d/ly" ]; do
