@@ -106,9 +106,16 @@ echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 cp -r configs/icewm /home/$user/.icewm/
 
-#while [ ! -f "/usr/bin/jgmenu_run" ]; do
-#  sleep 0.5
-#done
+apk add librsvg libxrandr libx11 pango glib libxml2
+git clone https://github.com/johanmalm/jgmenu.git
+cd jgmenu
+make
+make install
+cd ..
+
+while [ ! -f "/usr/bin/jgmenu_run" ]; do
+  sleep 0.5
+done
 jgmenu_run init --theme=greeneye #Sets a whiskermenu-like theme for jgmenu. 
 clear
 #Installing the Hiker Desktop-------------------------------------------------------
