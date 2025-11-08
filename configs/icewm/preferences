@@ -245,7 +245,7 @@
 # KeySysKeyboardNext=""
 
 #  Activates the IceWM root menu in the lower left corner.
-# KeySysMenu="Ctrl+Esc"
+KeySysMenu=""
 
 #  Minimizes all windows.
 # KeySysMinimizeAll="Alt+Shift+F9"
