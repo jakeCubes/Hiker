@@ -105,7 +105,7 @@ echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 cp -r configs/icewm /home/$user/.icewm/
 
-apk add librsvg libxrandr libx11 pango glib libxml2
+apk add make librsvg libxrandr libx11 pango glib libxml2
 git clone https://github.com/johanmalm/jgmenu.git
 cd jgmenu
 make
