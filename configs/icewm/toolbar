@@ -1,2 +1,2 @@
 #Adds the jgmenu start menu icon.
-prog "Menu" icewm /usr/bin/jgmenu_run
+prog "Menu" icewm /usr/bin/xfce4-popup-whiskermenu
