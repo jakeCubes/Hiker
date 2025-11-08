@@ -94,6 +94,7 @@ clear
 sleep 0.5
 apk add xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
+apk add jgmenu
 apk add greetd greetd-openrc greetd-tuigreet
 while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
@@ -104,13 +105,6 @@ echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 cp -r configs/icewm /home/$user/.icewm/
-
-apk add make librsvg libxrandr libx11 pango glib libxml2
-git clone https://github.com/johanmalm/jgmenu.git
-cd jgmenu
-make
-make install
-cd ..
 
 while [ ! -f "/usr/bin/jgmenu_run" ]; do
   sleep 0.5
