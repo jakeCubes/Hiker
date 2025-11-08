@@ -96,6 +96,9 @@ echo "Installing the desktop..."
 apk add xterm mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 apk add jgmenu
+mkdir -p /home/$user/.config/gtk-3.0/
+cp configs/gtk.css /home/$user/gtk-3.0/gtk.css
+
 apk add greetd greetd-openrc greetd-tuigreet
 while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
