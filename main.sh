@@ -92,6 +92,7 @@ clear
 
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
+echo "Installing the desktop..."
 apk add xterm xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 apk add jgmenu
