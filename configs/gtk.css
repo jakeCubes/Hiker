@@ -1,0 +1,34 @@
+#whiskermenu-window {
+	background: #404040;
+	color: #ccc;
+}
+
+/* Make sidebar buttons match */
+#whiskermenu-window .category-button {
+	background: #404040;
+	color: #ccc;
+}
+#whiskermenu-window .category-button:hover {
+	background: #808080;
+	color: #000;
+}
+#whiskermenu-window .category-button:checked {
+	background: #606060;
+	color: #000;
+}
+
+/* Make launcher views match */
+#whiskermenu-window .launchers {
+	background: #404040;
+	color: #ccc;
+}
+#whiskermenu-window .launchers:hover {
+	background: #808080;
+	color: #fff;
+}
+
+/* Make search entry match */
+#whiskermenu-window .search-area entry {
+	background: #404040;
+	color: #fff;
+}
