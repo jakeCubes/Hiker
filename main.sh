@@ -92,7 +92,6 @@ clear
 
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
-apk add jgmenu
 apk add xterm xorg-server xinit xf86-input-libinput icewm nitrogen xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
 
 apk add greetd greetd-openrc greetd-tuigreet
