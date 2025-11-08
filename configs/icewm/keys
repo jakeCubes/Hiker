@@ -11,6 +11,7 @@
 key "Alt+Ctrl+t"            xterm
 key "Alt+Ctrl+b"            xdg-open about:blank
 key "Alt+Ctrl+s"            xdg-open https://www.google.com
+key "Super_L"               xfce4-popup-whiskermenu
 
 key "Super+KP_Subtract"     amixer sset Master 5%-
 key "Super+KP_Add"          amixer sset Master 5%+
