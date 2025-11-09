@@ -93,7 +93,13 @@ clear
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
 echo "Installing the desktop..."
-apk add xterm mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp
+apk add xterm mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
+
+apk add elogind
+while [ ! -f "/etc/init.d/elogind" ]; do
+  sleep 0.5
+done
+rc-update add elogind
 
 apk add jgmenu
 mkdir -p /home/$user/.config/gtk-3.0/
