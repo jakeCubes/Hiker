@@ -2,7 +2,7 @@
 #
 # ~/.xinitrc
 #
-# Executed by startx (run your window manager from here)
+# The last lines with the window manager session are echoed from the script for technical reasons.
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
   for f in /etc/X11/xinit/xinitrc.d/*; do
