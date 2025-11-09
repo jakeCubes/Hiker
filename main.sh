@@ -62,6 +62,7 @@ sleep 0.5
 apk update
 sleep 0.5
 apk add linux-firmware util-linux pciutils usbutils iproute2 gcompat sof-firmware
+apk add linux-pam shadow-login #Fixes a problem where all polkit agents'd refuse to start. Turns out the default login command doesn't care about pam, which is a problem, because polkit requires it.
 setup-devd udev
 clear
 #Updating repositories and installing essential packages--------------------------
