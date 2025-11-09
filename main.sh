@@ -95,7 +95,6 @@ clear
 sleep 0.5
 echo "Installing the desktop..."
 apk add xterm mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
-
 apk add elogind
 while [ ! -f "/etc/init.d/elogind" ]; do
   sleep 0.5
@@ -198,6 +197,8 @@ sleep 0.5
 apk add flatpak discover discover-backend-apk discover-backend-flatpak
 sleep 2 #Waits for the shell to realise I told it to remember flstpak's a thing now.
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+wait 0.3
+flatpak install -y flathub hydrapaper #Here for the sake of convenience. :) I'll fix it later.
 clear
 #Adding a software store------------------------------------------------------------
 
