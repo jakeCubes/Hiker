@@ -959,7 +959,7 @@ TaskBarTaskGrouping=0 # [0-3]
 # VerticalEdgeSwitch=0 # 0/1
 
 #  Support the Windows/Super key modifier to activate special functions.  The left Super key toggles the Start menu, while the right Super key toggles the Window list window.
-# Win95Keys=1 # 0/1
+Win95Keys=0 # 0/1
 
 #  The list of items to be supported in the menu window (rmsnxfhualytieckw)
 # WinMenuItems="rmsnxfhualytiecw"
@@ -1315,7 +1315,7 @@ WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 # ListBoxFontNameXft="DejaVu Sans:size=12,Sans:size=12"
 
 #  The theme look.
-# Look="nice"
+Look="nice"
 
 #  Vertical offset for the menu button icon.
 # MenuButtonIconVertOffset=0 # [-128-128]
@@ -1429,7 +1429,7 @@ WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 # TitleBarHeight=20 # [0-128]
 
 #  Horizontal offset for the window title text.
-# TitleBarHorzOffset=0 # [-128-128]
+TitleBarHorzOffset=-100 # [-128-128]
 
 #  Join title*S and title*T.
 # TitleBarJoinLeft=0 # 0/1
@@ -1447,10 +1447,10 @@ WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 # TitleButtonsLeft="s"
 
 #  Titlebar buttons from right to left (x=close, m=max, i=min, h=hide, r=rollup, s=sysmenu, d=depth)
-# TitleButtonsRight="xmir"
+TitleButtonsRight="xmi"
 
 #  Titlebar buttons supported by theme (x,m,i,r,h,s,d)
-# TitleButtonsSupported="xmis"
+TitleButtonsSupported="xmi"
 
 #  Name of the title bar font.
 # TitleFontName="-misc-dejavu sans-medium-r-normal--12-*-*-*-*-*-*-*"
