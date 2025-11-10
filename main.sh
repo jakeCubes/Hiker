@@ -94,7 +94,7 @@ clear
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
 echo "Installing the desktop..."
-apk add xterm librewolf netsurf mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
+apk add xterm xfce4-screenshooter librewolf netsurf mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
 apk add elogind
 while [ ! -f "/etc/init.d/elogind" ]; do
   sleep 0.5
@@ -222,4 +222,5 @@ reboot
 #TODO:
 #Add a greeter.
 #Thunar says gvfs' missing. Fix that.
+#Make a config app with unified theming (dark/light), a wallpaper setter, and a brightness slider using brightnessctl.
 
