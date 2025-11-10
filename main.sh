@@ -171,7 +171,7 @@ while [ ! -f "/etc/init.d/polkit" ]; do
 done
 rc-update add polkit
 rc-service polkit start
-apk add pcmanfm gvfs-fuse udisks2 ntfs-3g gvfs-mtp gvfs-smb gvfs-afc gvfs-fuse gvfs-gphoto2 gvfs-archive
+apk add pcmanfm gvfs gvfs-fuse udisks2 ntfs-3g gvfs-mtp gvfs-smb gvfs-afc gvfs-fuse gvfs-gphoto2 gvfs-archive
 apk add fuse-openrc
 while [ ! -f "/etc/init.d/fuse" ]; do
   sleep 0.5
