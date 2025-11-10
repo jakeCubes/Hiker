@@ -5,7 +5,7 @@
 # Be sure to uncomment them if you change them!
 
 #  Use a 32-bit visual for alpha blending.
-# Alpha=0 # 0/1
+	# Alpha=0 # 0/1
 
 #  Enable event logging for debugging.
 # LogEvents=0 # 0/1
@@ -731,7 +731,7 @@ KeySysMenu=""
 # ShapesProtectClientWindow=1 # 0/1
 
 #  Show the about menu item in the program menu.
-# ShowAbout=1 # 0/1
+ShowAbout=0 # 0/1
 
 #  Show address bar in task bar.
 # ShowAddressBar=1 # 0/1
@@ -740,16 +740,16 @@ KeySysMenu=""
 # ShowEllipsis=1 # 0/1
 
 #  Show focus mode submenu in the program menu.
-# ShowFocusModeMenu=1 # 0/1
+ShowFocusModeMenu=0 # 0/1
 
 #  Show the help menu item in the program menu.
-# ShowHelp=1 # 0/1
+ShowHelp=0 # 0/1
 
 #  Show logout menu in the program menu.
 # ShowLogoutMenu=1 # 0/1
 
 #  Show logout submenu in the program menu.
-# ShowLogoutSubMenu=1 # 0/1
+ShowLogoutSubMenu=1 # 0/1
 
 #  Show position status window during move/resize.
 # ShowMoveSizeStatus=1 # 0/1
@@ -761,19 +761,19 @@ KeySysMenu=""
 # ShowProgramsMenu=0 # 0/1
 
 #  Show the run menu item in the program menu.
-# ShowRun=1 # 0/1
+ShowRun=0 # 0/1
 
 #  Show settings submenu in the program menu.
-# ShowSettingsMenu=1 # 0/1
+ShowSettingsMenu=0 # 0/1
 
 #  Show task bar.
 # ShowTaskBar=1 # 0/1
 
 #  Show themes submenu in the program menu.
-# ShowThemesMenu=1 # 0/1
+ShowThemesMenu=0 # 0/1
 
 #  Show the window menu item in the program menu.
-# ShowWindowList=1 # 0/1
+ShowWindowList=0 # 0/1
 
 #  Show name of current workspace while switching.
 # ShowWorkspaceStatus=1 # 0/1
@@ -878,7 +878,7 @@ TaskBarShowNetStatus=0 # 0/1
 TaskBarShowShowDesktopButton=0 # [0-2]
 
 #  Show 'Start' menu on task bar.
-TaskBarShowStartMenu=0 # 0/1
+TaskBarShowStartMenu=1 # 0/1
 
 #  Show transient (dialogs, ...) windows on task bar.
 TaskBarShowTransientWindows=0 # 0/1
@@ -908,7 +908,7 @@ TaskBarTaskGrouping=0 # [0-3]
 # TaskBarUseMouseWheel=1 # 0/1
 
 #  Task bar width as percentage of the screen width.
-# TaskBarWidthPercentage=100 # [0-100]
+TaskBarWidthPercentage=100 # [0-100]
 
 #  Place workspace pager on left, not right.
 # TaskBarWorkspacesLeft=1 # 0/1
@@ -947,10 +947,10 @@ TaskBarTaskGrouping=0 # [0-3]
 # ToolTipTime=0 # [0-60000]
 
 #  Show windows from all workspaces on tray.
-# TrayShowAllWindows=1 # 0/1
+TrayShowAllWindows=1 # 0/1
 
 #  Support mouse wheel. When pressing Ctrl+Alt rotating the mouse wheel on the root window will cycle the focus over the windows.
-# UseMouseWheel=0 # 0/1
+UseMouseWheel=1 # 0/1
 
 #  Bitmask of root window button click to use in window manager.
 # UseRootButtons=255 # [0-255]
@@ -959,13 +959,13 @@ TaskBarTaskGrouping=0 # [0-3]
 # VerticalEdgeSwitch=0 # 0/1
 
 #  Support the Windows/Super key modifier to activate special functions.  The left Super key toggles the Start menu, while the right Super key toggles the Window list window.
-Win95Keys=0 # 0/1
+Win95Keys=1 # 0/1
 
 #  The list of items to be supported in the menu window (rmsnxfhualytieckw)
 # WinMenuItems="rmsnxfhualytiecw"
 
 #  Add a workspace.
-WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
+WorkspaceNames=" 1 "
 
 #  Time before workspace status window is hidden in ms.
 # WorkspaceStatusTime=700 # [0-2500]
@@ -1315,7 +1315,7 @@ WorkspaceNames=" 1 ", " 2 ", " 3 ", " 4 "
 # ListBoxFontNameXft="DejaVu Sans:size=12,Sans:size=12"
 
 #  The theme look.
-Look="nice"
+# Look="nice"
 
 #  Vertical offset for the menu button icon.
 # MenuButtonIconVertOffset=0 # [-128-128]
@@ -1429,7 +1429,7 @@ Look="nice"
 # TitleBarHeight=20 # [0-128]
 
 #  Horizontal offset for the window title text.
-TitleBarHorzOffset=-100 # [-128-128]
+# TitleBarHorzOffset=0 # [-128-128]
 
 #  Join title*S and title*T.
 # TitleBarJoinLeft=0 # 0/1
@@ -1447,10 +1447,10 @@ TitleBarHorzOffset=-100 # [-128-128]
 # TitleButtonsLeft="s"
 
 #  Titlebar buttons from right to left (x=close, m=max, i=min, h=hide, r=rollup, s=sysmenu, d=depth)
-TitleButtonsRight="xmi"
+# TitleButtonsRight="xmir"
 
 #  Titlebar buttons supported by theme (x,m,i,r,h,s,d)
-TitleButtonsSupported="xmi"
+# TitleButtonsSupported="xmis"
 
 #  Name of the title bar font.
 # TitleFontName="-misc-dejavu sans-medium-r-normal--12-*-*-*-*-*-*-*"
