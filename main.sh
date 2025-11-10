@@ -83,7 +83,7 @@ else
   echo "No valid GPU brand was selected or generic/vm was selected."
 fi
 
-while [ ! -f "/etc/init.d/dbus" ]; do #Avoiding rc-update nonsense || It'd sometimes say D-Bus is not installed and just not enable the service.
+while [ ! -f "/etc/init.d/dbus" ]; do #Avoiding rc-update/apk nonsense || It'd sometimes say D-Bus is not installed and just not enable the service.
   sleep 0.5
 done
 rc-update add dbus
@@ -152,6 +152,8 @@ sleep 0.5
 apk add alsa-utils alsaconf
 addgroup root audio
 apk add volumeicon --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
+mkdir -p /home/$user/.config/volumeicon
+cp configs/volumeicon /home/$user/.config/volumeicon
 while [ ! -f "/etc/init.d/alsa" ]; do
   sleep 0.5
 done
@@ -195,10 +197,10 @@ clear
 echo "Installing the software store..."
 sleep 0.5
 apk add flatpak discover discover-backend-apk discover-backend-flatpak
-sleep 2 #Waits for the shell to realise I told it to remember flstpak's a thing now.
+while [ ! -f "/usr/bin/flatpak" ]; do
+  sleep 0.5
+done
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-wait 0.3
-flatpak install -y flathub hydrapaper #Here for the sake of convenience. :) I'll fix it later.
 clear
 #Adding a software store------------------------------------------------------------
 
