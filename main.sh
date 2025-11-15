@@ -94,7 +94,7 @@ clear
 #Installing the Hiker Desktop------------------------------------------------------
 sleep 0.5
 echo "Installing the desktop..."
-apk add xterm xfce4-screenshooter librewolf netsurf mousepad setxkbmap xorg-server xinit xf86-input-libinput icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
+apk add xterm xfce4-screenshooter librewolf netsurf mousepad setxkbmap xorg-server xinit xf86-input-libinput font-dejavu icewm xdg-desktop-portal xdg-desktop-portal-gtk xdg-desktop-portal-kde xdg-desktop-portal-xapp polkit-gnome
 apk add elogind
 while [ ! -f "/etc/init.d/elogind" ]; do
   sleep 0.5
@@ -105,11 +105,14 @@ apk add jgmenu
 mkdir -p /home/$user/.config/gtk-3.0/
 cp configs/gtk.css /home/$user/gtk-3.0/gtk.css
 
-apk add greetd greetd-openrc cage greetd-gtkgreet
-while [ ! -f "/etc/init.d/greetd" ]; do
+mkdir -p /etc/X11/ #LightDM just doesn't like rootless Xorg much. Not at all indeed.
+echo "allowed_users=anybody" >> /etc/X11/Xwrapper.config
+echo "needs_root_rights=yes" >> /etc/X11/Xwrapper.config
+apk add lightdm-gtk-greeter
+while [ ! -f "/etc/init.d/lightdm" ]; do
   sleep 0.5
 done
-rc-update add greetd
+rc-update add lightdm
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec dbus-launch --exit-with-session icewm-session" >> configs/.xinitrc
