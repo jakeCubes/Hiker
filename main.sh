@@ -105,9 +105,10 @@ apk add jgmenu
 mkdir -p /home/$user/.config/gtk-3.0/
 cp configs/gtk.css /home/$user/gtk-3.0/gtk.css
 
-mkdir -p /etc/X11/ #LightDM just doesn't like rootless Xorg much. Not at all indeed.
+mkdir -p /etc/X11/ #Greeters don't like rootless Xorg that much. Not at all indeed.
 echo "allowed_users=anybody" >> /etc/X11/Xwrapper.config
 echo "needs_root_rights=yes" >> /etc/X11/Xwrapper.config
+
 apk add lightdm-gtk-greeter
 while [ ! -f "/etc/init.d/lightdm" ]; do
   sleep 0.5
@@ -116,8 +117,8 @@ rc-update add lightdm
 
 echo "setxkbmap $layout" >> configs/.xinitrc
 echo "exec dbus-launch --exit-with-session icewm-session" >> configs/.xinitrc
-cp configs/.xinitrc /home/$user/.xinitrc
-cp -r configs/icewm /home/$user/.icewm/
+cp configs/.xinitrc /home/$user/.xprofile # This fixes lightdm not starting most important stuff,
+cp -r configs/icewm /home/$user/.icewm/ # though propperly adapting the .xinitrc file's like not a bad idea.
 
 while [ ! -f "/usr/bin/jgmenu_run" ]; do
   sleep 0.5
@@ -224,8 +225,6 @@ reboot
 #Rebooting----------------------------------------------------------------------------
 
 #TODO:
-#Add a greeter.
-#Automounting isn't working and Thunar says gvfs' missing. Fix that.
 #Make a config app with unified theming (dark/light), a wallpaper setter, timezone selection, and a brightness slider using brightnessctl.
 #:)
 
