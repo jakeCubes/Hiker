@@ -105,14 +105,14 @@ apk add jgmenu
 mkdir -p /home/$user/.config/gtk-3.0/
 cp configs/gtk.css /home/$user/gtk-3.0/gtk.css
 
-apk add greetd greetd-openrc greetd-tuigreet
+apk add greetd greetd-openrc cage greetd-gtkgreet
 while [ ! -f "/etc/init.d/greetd" ]; do
   sleep 0.5
 done
 rc-update add greetd
 
 echo "setxkbmap $layout" >> configs/.xinitrc
-echo "exec icewm-session" >> configs/.xinitrc
+echo "exec dbus-launch --exit-with-session icewm-session" >> configs/.xinitrc
 cp configs/.xinitrc /home/$user/.xinitrc
 cp -r configs/icewm /home/$user/.icewm/
 
@@ -222,6 +222,7 @@ reboot
 
 #TODO:
 #Add a greeter.
-#Thunar says gvfs' missing. Fix that.
-#Make a config app with unified theming (dark/light), a wallpaper setter, and a brightness slider using brightnessctl.
+#Automounting isn't working and Thunar says gvfs' missing. Fix that.
+#Make a config app with unified theming (dark/light), a wallpaper setter, timezone selection, and a brightness slider using brightnessctl.
+#:)
 
